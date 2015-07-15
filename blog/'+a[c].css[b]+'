@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    
+  <title>Squarespace - Please Stand By</title>
+
+  <script type="text/javascript" src="http://static.squarespace.com/universal/scripts-compressed/common-0d22be31b2bb8f464dae10d4df87656f-min.js"></script><link rel="stylesheet" type="text/css" href="http://static.squarespace.com/universal/styles-compressed/common-56a67aeeff5b18c8bae792ec49feb50a-min.css"/>
+  <script type="text/javascript" src="http://static.squarespace.com/universal/scripts-compressed/dialog-8d22fcd45a8fb526f1ed783ed43aa5c9-min.js"></script><link rel="stylesheet" type="text/css" href="http://static.squarespace.com/universal/styles-compressed/dialog-6de29011f430aeff4df902860344ea6b-min.css"/>
+  <script type="text/javascript" src="http://static.squarespace.com/universal/scripts-compressed/system-page-7dff166a7de394f4d44b318515b3e261-min.js"></script><link rel="stylesheet" type="text/css" href="http://static.squarespace.com/universal/styles-compressed/system-page-79ac01eeed4bbbec7f99b31f3af0e19a-min.css"/>
+  
+  <style>
+    .error-key { font-size: 9px; -webkit-user-select: text; padding-top: 20px; color: #555; position: fixed; bottom: 44px; left: 44px; z-index: 9999999999; }
+  </style>
+
+</head>
+<body class="squarespace-config squarespace-system-page">
+
+  <div class="error-key"></div>
+  <div class="minimal-logo">&nbsp;</div>
+
+  <script>
+
+    YUI(YUI_CONFIG).use('squarespace-common', 'squarespace-system-page', function(Y) {
+
+      var report = "Something went wrong.";
+      var errorKey = "E2EXJ87DKPB2TAKHWSM7";
+
+      if (report) {
+
+        var err = new Y.Squarespace.SystemError(document.location.href, { error: report, errorKey: errorKey }, "html");
+        err.clearable = false;
+        err.show();
+
+      } else {
+
+        Y.one(".error-key").setContent(errorKey);
+
+        var lb = new Y.Squarespace.Lightbox({
+          disableNormalClose: true,
+          clickAnywhereToExit: false,
+          content: '<div class="bigtext" style="width: 500px; height: 130px;"><div class="title">Something Went Wrong!</div><div class="description">Our system has encountered an error.  This exception has been automatically logged and reported.  We will return shortly.</div></div>',
+          margin: 100
+        });
+
+        lb.show();
+        
+      }
+      
+    });
+          
+  </script> 
+
+</body>
+</html>
